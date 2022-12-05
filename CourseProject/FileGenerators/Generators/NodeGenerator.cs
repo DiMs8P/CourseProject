@@ -7,7 +7,7 @@ using FileGenerators.DataStructures;
 
 namespace FileGenerators.Generators
 {
-    public class NodeGenerator : IGenerator
+    internal class NodeGenerator : IGenerator
     {
         int _numOnX;
         int _numOnY;
@@ -25,9 +25,9 @@ namespace FileGenerators.Generators
             _elementHeight = (rectangleLocation.UpperRight.Y - rectangleLocation.LowerLeft.Y) / numOnY;
         }
 
-        public void Generate(string rootPath)
+        public void Generate()
         {
-            using (StreamWriter writer = new StreamWriter(rootPath, false))
+            using (StreamWriter writer = new StreamWriter(Config.RootPath + Config.NodeFileName, false))
             {
                 for (int j = 0; j < _numOnY + 1; j++)
                 {

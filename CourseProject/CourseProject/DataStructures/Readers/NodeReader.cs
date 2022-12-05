@@ -1,10 +1,12 @@
-﻿
+﻿using CourseProject.DataStructures;
 using FileGenerators;
 
 namespace CourseProject.DataStructures.Readers
 {
     public class NodeReader : IReader<Node>
     {
+
+
         public override List<Node> Read()
         {
             List<Node> nodes = new List<Node>();

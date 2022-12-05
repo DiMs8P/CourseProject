@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileGenerators
+namespace CourseProject.DataStructures.Matrixes
 {
-    internal interface IGenerator
+    internal interface ISymmetrical
     {
-        internal void Generate();
     }
 }

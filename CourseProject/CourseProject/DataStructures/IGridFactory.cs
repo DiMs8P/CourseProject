@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileGenerators
+namespace CourseProject.DataStructures
 {
-    internal interface IGenerator
+    public interface IGridFactory
     {
-        internal void Generate();
+        Grid CreateGrid();
     }
 }

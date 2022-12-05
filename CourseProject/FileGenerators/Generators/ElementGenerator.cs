@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FileGenerators.Generators
 {
-    public class ElementGenerator : IGenerator
+    internal class ElementGenerator : IGenerator
     {
         int _numOnX;
         int _numOnY;
@@ -16,21 +16,21 @@ namespace FileGenerators.Generators
             _numOnY = numOnY;
         }
 
-        public void Generate(string rootPath)
+        public void Generate()
         {
-            using (StreamWriter writer = new StreamWriter(rootPath, false))
+            using (StreamWriter writer = new StreamWriter(Config.RootPath + Config.ElemFileName, false))
             {
                 for (int i = 0; i < _numOnY; i++)
                 {
                     for (int j = 0; j < _numOnX; j++)
                     {
-                        GenerateElem(i, j, rootPath, writer);
+                        GenerateElem(i, j, writer);
                     }
                 }
             }
         }
 
-        private void GenerateElem(int i, int j, string rootPath, StreamWriter writer)
+        private void GenerateElem(int i, int j, StreamWriter writer)
         {
             WriteLowerTriangle(i, j, writer);
             WriteUpperTriangle(i, j, writer);

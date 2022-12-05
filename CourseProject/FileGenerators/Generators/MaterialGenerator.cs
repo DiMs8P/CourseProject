@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 namespace FileGenerators.Generators
 {
-    public class MaterialGenerator : IGenerator
+    internal class MaterialGenerator : IGenerator
     {
         private int _numOfMaterials = 0;
         public MaterialGenerator(int numOfMaterials)
         {
             _numOfMaterials = numOfMaterials;
         }
-        public void Generate(string rootPath) {
+        public void Generate() {
 
-            using (StreamWriter writer = new StreamWriter(rootPath, false))
+            using (StreamWriter writer = new StreamWriter(Config.RootPath + Config.MatFileName, false))
             {
                 for(int i = 0; i < _numOfMaterials; i++)
                 {
-                    writer.WriteLine("0 0 0 0");
+                    writer.WriteLine("0");
                 }
             }
         }

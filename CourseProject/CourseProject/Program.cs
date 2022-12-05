@@ -1,5 +1,6 @@
 ﻿using FileGenerators.Generators;
 using FileGenerators;
+using System.Drawing;
 
 namespace CourseProject
 {
@@ -8,8 +9,8 @@ namespace CourseProject
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
-            IGenerator generator = new ElementGenerator(10,10);
-            generator.Generate(Config.RootPath + "Elem.txt");
+            var gridGenerator = new GridGenerator();
+            gridGenerator.Generate();
         }
     }
 }
