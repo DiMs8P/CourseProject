@@ -3,9 +3,11 @@ using FileGenerators;
 using FileGenerators.Generators;
 using CourseProject.DataStructures;
 using CourseProject.DataStructures.Readers;
+using CourseProject.Readers;
+
 namespace CourseProject.Tests
 {
-    public class Tests
+    public class ReaderTests
     {
         [SetUp]
         public void Setup()
@@ -18,7 +20,7 @@ namespace CourseProject.Tests
             IReader<Node> reader = new NodeReader();
             var nodes = reader.Read();
 
-            Assert.AreEqual(25, nodes.Count);
+            Assert.AreEqual((Config.NumOfX + 1) * (Config.NumOfY + 1), nodes.Count);
         }
 
         [Test]
@@ -28,7 +30,7 @@ namespace CourseProject.Tests
             var reader = new ElementReader(materiaReader);
             var nodes = reader.Read();
 
-            Assert.AreEqual(200, nodes.Count);
+            Assert.AreEqual(Config.NumOfX * Config.NumOfY * 2, nodes.Count);
         }
     }
 }

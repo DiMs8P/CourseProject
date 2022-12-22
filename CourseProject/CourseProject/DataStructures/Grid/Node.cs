@@ -1,4 +1,4 @@
 ﻿namespace CourseProject.DataStructures
 {
-    public readonly record struct Node(float Radius, float Angle, float Diffusion);
+    public readonly record struct Node(double Radius, double Angle, double Diffusion);
 }

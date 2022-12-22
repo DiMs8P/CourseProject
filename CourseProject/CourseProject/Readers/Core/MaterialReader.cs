@@ -5,19 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CourseProject.DataStructures.Readers
+namespace CourseProject.Readers.Core
 {
-    public class MaterialReader : IReader<float>
+    public class MaterialReader : IReader<double>
     {
-        public override List<float> Read()
+        public override List<double> Read()
         {
-            List<float> materials = new List<float>();
+            List<double> materials = new List<double>();
             using (StreamReader reader = new StreamReader(Config.RootPath + Config.MatFileName))
             {
                 while (!reader.EndOfStream)
                 {
                     var material = reader.ReadLine();
-                    materials.Add(float.Parse(material));
+                    materials.Add(double.Parse(material));
                 }
             }
             return materials;

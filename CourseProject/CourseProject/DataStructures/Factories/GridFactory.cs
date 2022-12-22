@@ -1,33 +1,37 @@
-﻿using CourseProject.DataStructures.Readers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CourseProject.Calculus.LocalElements;
+using CourseProject.Readers;
+using CourseProject.Readers.Core;
 
 namespace CourseProject.DataStructures.Factories
 {
     public class GridFactory : IGridFactory
     {
         IReader<Node> _nodeReader = new NodeReader();
-        IReader<Element> _elementReader;
-        IReader<float> _materialReader;
+        IReader<Element> _elementsReader;
+        IReader<double> _materialReader;
 
         public GridFactory()
         {
             _materialReader = new MaterialReader();
-            _elementReader = new ElementReader(_materialReader); 
+            _elementsReader = new ElementReader(_materialReader); 
         }
         public Grid CreateGrid()
         {
-            var elements = _elementReader.Read();
+            var elements = _elementsReader.Read();
+
             var nodes = _nodeReader.Read();
+
             if (elements == null || nodes == null || nodes.Count < 3)
             {
                 throw new InvalidDataException();
             }
 
-            return new Grid(elements, nodes, nodes[1].Radius - nodes[0].Radius, nodes[2].Angle - nodes[0].Angle);
+            return new Grid(elements, nodes, Math.Abs(nodes[elements[0].NodeIndexes[1]].Radius - nodes[elements[0].NodeIndexes[0]].Radius), Math.Abs(nodes[elements[0].NodeIndexes[2]].Angle - nodes[elements[0].NodeIndexes[0]].Angle));
         }
 
     }

@@ -2,5 +2,5 @@
 
 namespace FileGenerators.DataStructures
 {
-    public readonly record struct RectangleLocation(PointF LowerLeft, PointF UpperRight);
+    public readonly record struct RectangleLocation(Point LowerLeft, Point UpperRight);
 }

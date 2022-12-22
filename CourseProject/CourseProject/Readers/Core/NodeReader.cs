@@ -1,7 +1,7 @@
 ﻿using CourseProject.DataStructures;
 using FileGenerators;
 
-namespace CourseProject.DataStructures.Readers
+namespace CourseProject.Readers.Core
 {
     public class NodeReader : IReader<Node>
     {
@@ -15,7 +15,7 @@ namespace CourseProject.DataStructures.Readers
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
-                    var elemArray = line.Split(' ').Select(x => float.Parse(x)).ToArray();
+                    var elemArray = line.Split(' ').Select(x => Convert.ToDouble(x)).ToArray();
                     nodes.Add(new Node(elemArray[0], elemArray[1], elemArray[2]));
                 }
             }

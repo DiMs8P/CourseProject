@@ -13,8 +13,8 @@ namespace FileGenerators.Generators
         int _numOnY;
         RectangleLocation _rectangleLocation;
 
-        float _elementWidth;
-        float _elementHeight;
+        double _elementWidth;
+        double _elementHeight;
         public NodeGenerator(RectangleLocation rectangleLocation, int numOnX, int numOnY)
         {
             _numOnX = numOnX;
@@ -37,7 +37,7 @@ namespace FileGenerators.Generators
                             Convert.ToString(_rectangleLocation.LowerLeft.X + i * _elementWidth) +
                             " " +
                             Convert.ToString(_rectangleLocation.LowerLeft.Y + j * _elementHeight) +
-                            " 0"
+                            " 1"
                             );
                     }
                 }

@@ -20,7 +20,7 @@ namespace FileGenerators.Generators
             {
                 for(int i = 0; i < _numOfMaterials; i++)
                 {
-                    writer.WriteLine("0");
+                    writer.WriteLine("1");
                 }
             }
         }

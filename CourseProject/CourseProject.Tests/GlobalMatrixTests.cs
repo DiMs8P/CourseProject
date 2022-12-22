@@ -19,10 +19,9 @@ namespace CourseProject.Tests
         [Test]
         public void PortraitTest()
         {
-
             var matrix = new GlobalMatrix(new GridFactory());
 
-            Assert.AreEqual(Config.NumOfY * Config.NumOfX * 2, matrix._rowIndex.Count);
+            Assert.AreEqual(Config.NumOfY * Config.NumOfX * 2, matrix.RowPtr.Length);
         }
     }
 }

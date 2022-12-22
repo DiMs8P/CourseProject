@@ -1,4 +1,5 @@
-﻿using FileGenerators;
+﻿using CourseProject.DataStructures;
+using FileGenerators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,13 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace CourseProject.DataStructures.Readers
+namespace CourseProject.Readers.Core
 {
     public class ElementReader : IReader<Element>
     {
-        IReader<float> _materialReader;
-        List<float> materials;
-        public ElementReader(IReader<float> materialReader)
+        IReader<double> _materialReader;
+        List<double> materials;
+        public ElementReader(IReader<double> materialReader)
         {
             _materialReader = materialReader;
             materials = _materialReader.Read();
@@ -44,7 +45,7 @@ namespace CourseProject.DataStructures.Readers
             return elements;
         }
 
-        private float GetMaterialByIndex(int index)
+        private double GetMaterialByIndex(int index)
         {
             return materials[index];
         }
