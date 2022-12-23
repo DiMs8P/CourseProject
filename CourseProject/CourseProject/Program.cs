@@ -6,6 +6,7 @@ using CourseProject.Calculus.LocalElements;
 using CourseProject.DataStructures;
 using CourseProject.DataStructures.Factories;
 using CourseProject.Calculus.Global;
+using CourseProject.Calculus.SlaeSolver;
 using CourseProject.DataStructures.BoundaryCondition;
 using CourseProject.DataStructures.BoundaryConditions;
 using CourseProject.Readers;
@@ -40,10 +41,18 @@ namespace CourseProject
             FirstBoundaryConditionsApplyer applyer1 = new FirstBoundaryConditionsApplyer(reader1);
 
             applyer2.Apply(grid, vector);
-            applyer1.Apply(grid, matrix, vector);
 
             applyer3.ApplyMatrix(grid, matrix);
             applyer3.ApplyVector(grid, vector);
+
+            applyer1.Apply(grid, matrix, vector);
+
+            MSG msg = new MSG(matrix, vector);
+            var solution = msg.Solve();
+
+            Solver solver = new Solver(grid, matrix, vector, solution);
+            solver.Solve(new (1, 1));
+
         }
     }
 }

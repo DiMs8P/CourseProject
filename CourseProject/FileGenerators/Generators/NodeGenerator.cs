@@ -21,8 +21,8 @@ namespace FileGenerators.Generators
             _numOnY = numOnY;
             _rectangleLocation = rectangleLocation;
 
-            _elementWidth = (rectangleLocation.UpperRight.X - rectangleLocation.LowerLeft.X) / numOnX;
-            _elementHeight = (rectangleLocation.UpperRight.Y - rectangleLocation.LowerLeft.Y) / numOnY;
+            _elementWidth = (rectangleLocation.UpperRight.R - rectangleLocation.LowerLeft.R) / numOnX;
+            _elementHeight = (rectangleLocation.UpperRight.Phi - rectangleLocation.LowerLeft.Phi) / numOnY;
         }
 
         public void Generate()
@@ -34,9 +34,9 @@ namespace FileGenerators.Generators
                     for (int i = 0; i < _numOnX + 1; i++)
                     {
                         writer.WriteLine(
-                            Convert.ToString(_rectangleLocation.LowerLeft.X + i * _elementWidth) +
+                            Convert.ToString(_rectangleLocation.LowerLeft.R + i * _elementWidth) +
                             " " +
-                            Convert.ToString(_rectangleLocation.LowerLeft.Y + j * _elementHeight) +
+                            Convert.ToString(_rectangleLocation.LowerLeft.Phi + j * _elementHeight) +
                             " 1"
                             );
                     }

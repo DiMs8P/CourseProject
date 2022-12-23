@@ -58,7 +58,7 @@ namespace CourseProject.BoundaryConditions
 
                 globalMatrix.Add(boundaryCondition.FirstGlobalIndex, boundaryCondition.FirstGlobalIndex, matrix[0, 0]);
                 globalMatrix.Add(boundaryCondition.SecondGlobalIndex, boundaryCondition.SecondGlobalIndex, matrix[1, 1]);
-                globalMatrix.Add(boundaryCondition.FirstGlobalIndex, boundaryCondition.SecondGlobalIndex, matrix[0, 0]);
+                globalMatrix.Add(boundaryCondition.FirstGlobalIndex, boundaryCondition.SecondGlobalIndex, matrix[1, 0]);
             }
         }
     }

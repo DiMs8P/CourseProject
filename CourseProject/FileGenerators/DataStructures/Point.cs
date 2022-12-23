@@ -1,4 +1,4 @@
 ﻿namespace FileGenerators.DataStructures
 {
-    public readonly record struct Point(double X, double Y);
+    public readonly record struct Point(double R, double Phi);
 }

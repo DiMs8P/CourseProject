@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33103.201
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseProject", "CourseProject\CourseProject.csproj", "{3BACA984-A1D8-4A75-9CC4-1B65B8C29FBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseProject", "CourseProject\CourseProject.csproj", "{3BACA984-A1D8-4A75-9CC4-1B65B8C29FBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileGenerators", "FileGenerators\FileGenerators.csproj", "{4BCCF795-BFE5-4102-83E1-774C44DA94C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileGenerators", "FileGenerators\FileGenerators.csproj", "{4BCCF795-BFE5-4102-83E1-774C44DA94C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseProject.Tests", "CourseProject.Tests\CourseProject.Tests.csproj", "{D64131EA-4DD2-4653-A3DA-14412E3024E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseProject.Tests", "CourseProject.Tests\CourseProject.Tests.csproj", "{D64131EA-4DD2-4653-A3DA-14412E3024E3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{446E7965-A3C4-495C-97BF-86D48893C5BA}"
 	ProjectSection(SolutionItems) = preProject

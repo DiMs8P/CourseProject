@@ -96,7 +96,7 @@ namespace CourseProject.Calculus.Global
         {
             foreach (var elem in _grid.Elements)
             {
-                SymmetricMatrix localMatrix = elem.MassMatrix / elem.Gamma + elem.StiffnessMatrix;
+                SymmetricMatrix localMatrix = (elem.MassMatrix.GetCopy() / elem.Gamma) + elem.StiffnessMatrix;
                 for (int i = 0; i < elem.NodeIndexes.Length; i++)
                 {
                     var globalIndex = elem.NodeIndexes[i];
@@ -109,7 +109,7 @@ namespace CourseProject.Calculus.Global
                     {
                         var globalIndexI = elem.NodeIndexes[i];
                         var globalIndexJ = elem.NodeIndexes[j];
-                        SetValue(globalIndexI, globalIndexJ, localMatrix[i, j]);
+                        Add(globalIndexI, globalIndexJ, localMatrix[i, j]);
                     }
                 }
             }

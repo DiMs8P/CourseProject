@@ -77,5 +77,19 @@ namespace CourseProject.DataStructures.Matrixes
             }
             return matrix1;
         }
+
+        public SymmetricMatrix GetCopy()
+        {
+            double[,] newData = new double[Data.GetLength(0), Data.GetLength(1)];
+            for (int i = 0; i < Data.GetLength(0); i++)
+            {
+                for (int j = 0; j < Data.GetLength(1); j++)
+                {
+                    newData[i, j] = Data[i, j];
+                }
+            }
+
+            return new SymmetricMatrix(newData);
+        }
     }
 }

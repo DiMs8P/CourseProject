@@ -14,14 +14,14 @@ namespace FileGenerators
         public const string SecondBoundaryConditions = "SecondBoundaryConditions.txt";
         public const string ThirdBoundaryConditions = "ThirdBoundaryConditions.txt";
 
-        public const int NumOfX = 3;
-        public const int NumOfY = 2;
+        public const int Splitting = 1;
+        public const int NumOfX = 2 * Splitting;
+        public const int NumOfY = 1 * Splitting;
+        
 
-        public static RectangleLocation Location = new RectangleLocation(new Point(0,0), new Point(10,90));
+        public static RectangleLocation Location = new RectangleLocation(new Point(0,0), new Point(4,3));
 
         public const int NumOfMaterials = 10;
-
-        public const int NumOfPoints = 3;
 
         public static Func<double, double, double> f = (r, phi) => r * r + phi * phi;
     }

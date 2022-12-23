@@ -101,9 +101,10 @@ namespace CourseProject.Calculus.LocalElements.Fillers
                                         (_grid.Elements[elemIndex].Functions[p].ValueRadiusDerivativeIn(rI, phiJ) *
                                          _grid.Elements[elemIndex].Functions[q].ValueRadiusDerivativeIn(rI, phiJ) +
                                          _grid.Elements[elemIndex].Functions[p].ValueAngleDerivativeIn(rI, phiJ) *
-                                          _grid.Elements[elemIndex].Functions[q].ValueAngleDerivativeIn(rI, phiJ) /
-                                         (rI * rI)) *
-                                        lambdaForElem(rI, phiJ);
+                                          _grid.Elements[elemIndex].Functions[q].ValueAngleDerivativeIn(rI, phiJ));
+                                        // /
+                                        // (rI * rI)) *
+                                        //lambdaForElem(rI, phiJ);
                                 }
 
                                 innerIntergalValue += sumOfInnerIntegral * _weights[j] / 2.0;
@@ -162,9 +163,10 @@ namespace CourseProject.Calculus.LocalElements.Fillers
                                         (_grid.Elements[elemIndex].Functions[p].ValueRadiusDerivativeIn(rI, phiJ) *
                                          _grid.Elements[elemIndex].Functions[q].ValueRadiusDerivativeIn(rI, phiJ) +
                                          _grid.Elements[elemIndex].Functions[p].ValueAngleDerivativeIn(rI, phiJ) *
-                                          _grid.Elements[elemIndex].Functions[q].ValueAngleDerivativeIn(rI, phiJ) /
-                                         (rI * rI)) *
-                                        lambdaForElem(rI, phiJ);
+                                          _grid.Elements[elemIndex].Functions[q].ValueAngleDerivativeIn(rI, phiJ));
+                                        // /
+                                        // (rI * rI)) *
+                                        //lambdaForElem(rI, phiJ);
                                 }
 
                                 innerIntergalValue += sumOfInnerIntegral * _weights[j] / 2.0;
@@ -186,8 +188,6 @@ namespace CourseProject.Calculus.LocalElements.Fillers
         private SymmetricMatrix GetEvenMassMatrix(int elemIndex)
         {
             var massMatrix = new SymmetricMatrix(new double[3, 3]);
-
-            var lambdaForElem = _lambdaDelegate.In(_grid.Elements[elemIndex]);
 
             for (int q = 0; q < massMatrix.Data.GetLength(0); q++)
             {
@@ -220,8 +220,7 @@ namespace CourseProject.Calculus.LocalElements.Fillers
 
                                     sumOfInnerIntegral += rI * _heightStep *
                                                           (_grid.Elements[elemIndex].Functions[p].ValueIn(rI, phiJ) *
-                                                           _grid.Elements[elemIndex].Functions[q].ValueIn(rI, phiJ) *
-                                                           lambdaForElem(rI, phiJ));
+                                                           _grid.Elements[elemIndex].Functions[q].ValueIn(rI, phiJ));
                                 }
 
                                 innerIntergalValue += sumOfInnerIntegral * _weights[j] / 2.0;
@@ -244,8 +243,6 @@ namespace CourseProject.Calculus.LocalElements.Fillers
         {
             var massMatrix = new SymmetricMatrix(new double[3, 3]);
 
-            var lambdaForElem = _lambdaDelegate.In(_grid.Elements[elemIndex]);
-
             for (int q = 0; q < massMatrix.Data.GetLength(0); q++)
             {
                 for (int p = q; p < massMatrix.Data.GetLength(1); p++)
@@ -260,7 +257,7 @@ namespace CourseProject.Calculus.LocalElements.Fillers
                         {
                             var rI = (_grid.Nodes[_grid.Elements[elemIndex].NodeIndexes[0]].Radius + r * _widthStep +
                                       _grid.Nodes[_grid.Elements[elemIndex].NodeIndexes[0]].Radius +
-                                      (r + 1) * _widthStep) / 2.0 + _rootsLegendrePolynomial[i] * _widthStep / 2;
+                                      (r + 1) * _widthStep) / 2.0 + _rootsLegendrePolynomial[i] * _widthStep / 2.0;
 
                             var innerIntergalValue = 0.0d;
 
@@ -277,8 +274,7 @@ namespace CourseProject.Calculus.LocalElements.Fillers
 
                                     sumOfInnerIntegral += rI * _heightStep *
                                                           (_grid.Elements[elemIndex].Functions[p].ValueIn(rI, phiJ) *
-                                                           _grid.Elements[elemIndex].Functions[q].ValueIn(rI, phiJ) *
-                                                           lambdaForElem(rI, phiJ));
+                                                           _grid.Elements[elemIndex].Functions[q].ValueIn(rI, phiJ));
                                 }
 
                                 innerIntergalValue += sumOfInnerIntegral * _weights[j] / 2.0;
