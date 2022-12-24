@@ -68,7 +68,7 @@ namespace CourseProject.BoundaryConditions
                                               ((_grid.Elements[boundaryCondition.ElemIndex].Functions[boundaryCondition.FirstLocalIndex].ValueIn(_grid.Nodes[globalIndex1].Radius, phiJ) * boundaryCondition.Theta1) + (
                                                _grid.Elements[boundaryCondition.ElemIndex].Functions[boundaryCondition.SecondLocalIndex].ValueIn(_grid.Nodes[globalIndex2].Radius, phiJ) * boundaryCondition.Theta2)) *
                                               _grid.Elements[boundaryCondition.ElemIndex].Functions[index[p]].ValueIn(_grid.Nodes[globalIndex1].Radius, phiJ) *
-                                               _grid.Nodes[globalIndex1].Radius;
+                                               _grid.Nodes[globalIndex1].Radius * _grid.Nodes[globalIndex1].Radius;
                     }
 
                     secondCondition[p] = sumOfInnerIntegral * _weights[j] / 2.0;
@@ -109,7 +109,7 @@ namespace CourseProject.BoundaryConditions
                                               ((_grid.Elements[boundaryCondition.ElemIndex].Functions[boundaryCondition.FirstLocalIndex].ValueIn(rJ, _grid.Nodes[globalIndex1].Angle) * boundaryCondition.Theta1) + (
                                                _grid.Elements[boundaryCondition.ElemIndex].Functions[boundaryCondition.SecondLocalIndex].ValueIn(rJ, _grid.Nodes[globalIndex1].Angle) * boundaryCondition.Theta2)) *
                                               _grid.Elements[boundaryCondition.ElemIndex].Functions[index[p]].ValueIn(rJ, _grid.Nodes[globalIndex1].Angle) *
-                                              rJ;
+                                              rJ * rJ;
                     }
 
                     secondCondition[p] = sumOfInnerIntegral * _weights[j] / 2.0;

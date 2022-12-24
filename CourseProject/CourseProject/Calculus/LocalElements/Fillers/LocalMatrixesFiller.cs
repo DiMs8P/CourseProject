@@ -98,11 +98,11 @@ namespace CourseProject.Calculus.LocalElements.Fillers
 
                                     sumOfInnerIntegral +=
                                         rI * _heightStep *
-                                        (_grid.Elements[elemIndex].Functions[p].ValueRadiusDerivativeIn(rI, phiJ) *
-                                         _grid.Elements[elemIndex].Functions[q].ValueRadiusDerivativeIn(rI, phiJ) +
+                                        ((_grid.Elements[elemIndex].Functions[p].ValueRadiusDerivativeIn(rI, phiJ) *
+                                         _grid.Elements[elemIndex].Functions[q].ValueRadiusDerivativeIn(rI, phiJ)) + (
                                          _grid.Elements[elemIndex].Functions[p].ValueAngleDerivativeIn(rI, phiJ) *
                                           _grid.Elements[elemIndex].Functions[q].ValueAngleDerivativeIn(rI, phiJ) / 
-                                         (rI * rI)) *
+                                         (rI * rI))) *
                                         lambdaForElem(rI, phiJ);
                                 }
 
@@ -159,8 +159,8 @@ namespace CourseProject.Calculus.LocalElements.Fillers
 
                                     sumOfInnerIntegral +=
                                         rI * _heightStep *
-                                        (_grid.Elements[elemIndex].Functions[p].ValueRadiusDerivativeIn(rI, phiJ) *
-                                         _grid.Elements[elemIndex].Functions[q].ValueRadiusDerivativeIn(rI, phiJ) +
+                                        ((_grid.Elements[elemIndex].Functions[p].ValueRadiusDerivativeIn(rI, phiJ) *
+                                         _grid.Elements[elemIndex].Functions[q].ValueRadiusDerivativeIn(rI, phiJ)) +
                                          _grid.Elements[elemIndex].Functions[p].ValueAngleDerivativeIn(rI, phiJ) *
                                           _grid.Elements[elemIndex].Functions[q].ValueAngleDerivativeIn(rI, phiJ) / 
                                          (rI * rI)) *
