@@ -39,12 +39,12 @@ namespace CourseProject.Calculus.LocalElements.Fillers
         {
             for (int evenElemIndex = 0; evenElemIndex < _grid.Elements.Count; evenElemIndex += 2)
             {
-                _grid.Elements[evenElemIndex].MassMatrix = GetEvenMassMatrix(evenElemIndex) / _grid.Elements[evenElemIndex].Gamma;
+                _grid.Elements[evenElemIndex].MassMatrix = GetEvenMassMatrix(evenElemIndex) * _grid.Elements[evenElemIndex].Gamma;
             }
 
             for (int oddElemIndex = 1; oddElemIndex < _grid.Elements.Count; oddElemIndex += 2)
             {
-                _grid.Elements[oddElemIndex].MassMatrix = GetOddMassMatrix(oddElemIndex) / _grid.Elements[oddElemIndex].Gamma;
+                _grid.Elements[oddElemIndex].MassMatrix = GetOddMassMatrix(oddElemIndex) * _grid.Elements[oddElemIndex].Gamma;
             }
         }
 
@@ -101,10 +101,9 @@ namespace CourseProject.Calculus.LocalElements.Fillers
                                         (_grid.Elements[elemIndex].Functions[p].ValueRadiusDerivativeIn(rI, phiJ) *
                                          _grid.Elements[elemIndex].Functions[q].ValueRadiusDerivativeIn(rI, phiJ) +
                                          _grid.Elements[elemIndex].Functions[p].ValueAngleDerivativeIn(rI, phiJ) *
-                                          _grid.Elements[elemIndex].Functions[q].ValueAngleDerivativeIn(rI, phiJ));
-                                        // /
-                                        // (rI * rI)) *
-                                        //lambdaForElem(rI, phiJ);
+                                          _grid.Elements[elemIndex].Functions[q].ValueAngleDerivativeIn(rI, phiJ) / 
+                                         (rI * rI)) *
+                                        lambdaForElem(rI, phiJ);
                                 }
 
                                 innerIntergalValue += sumOfInnerIntegral * _weights[j] / 2.0;
@@ -163,10 +162,9 @@ namespace CourseProject.Calculus.LocalElements.Fillers
                                         (_grid.Elements[elemIndex].Functions[p].ValueRadiusDerivativeIn(rI, phiJ) *
                                          _grid.Elements[elemIndex].Functions[q].ValueRadiusDerivativeIn(rI, phiJ) +
                                          _grid.Elements[elemIndex].Functions[p].ValueAngleDerivativeIn(rI, phiJ) *
-                                          _grid.Elements[elemIndex].Functions[q].ValueAngleDerivativeIn(rI, phiJ));
-                                        // /
-                                        // (rI * rI)) *
-                                        //lambdaForElem(rI, phiJ);
+                                          _grid.Elements[elemIndex].Functions[q].ValueAngleDerivativeIn(rI, phiJ) / 
+                                         (rI * rI)) *
+                                    lambdaForElem(rI, phiJ);
                                 }
 
                                 innerIntergalValue += sumOfInnerIntegral * _weights[j] / 2.0;

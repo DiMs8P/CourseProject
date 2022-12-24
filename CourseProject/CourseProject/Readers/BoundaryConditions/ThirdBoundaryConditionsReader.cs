@@ -24,7 +24,7 @@ namespace CourseProject.Readers.BoundaryConditions
                     var line = reader.ReadLine();
                     var elemArray = line.Split(' ').ToArray();
 
-                    result.Add(new ThirdBoundaryCondition(int.Parse(elemArray[0]), int.Parse(elemArray[1]), double.Parse(elemArray[2]), double.Parse(elemArray[3])));
+                    result.Add(new ThirdBoundaryCondition(int.Parse(elemArray[0]), int.Parse(elemArray[1]), int.Parse(elemArray[2]), double.Parse(elemArray[3]), double.Parse(elemArray[4]), double.Parse(elemArray[5])));
                 }
             }
 

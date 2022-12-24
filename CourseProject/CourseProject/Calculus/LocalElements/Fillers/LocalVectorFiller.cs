@@ -31,7 +31,7 @@ namespace CourseProject.Calculus.LocalElements.Fillers
                     func.Add(Config.f(_grid.Nodes[nodeIndex].Radius, _grid.Nodes[nodeIndex].Angle));
                 }
 
-                Elem.LocalVector = MultiplyMatrixByVector(Elem.MassMatrix * Elem.Gamma, func);
+                Elem.LocalVector = MultiplyMatrixByVector(Elem.MassMatrix / Elem.Gamma, func);
             }
         }
 

@@ -1,4 +1,4 @@
 ﻿namespace CourseProject.DataStructures.BoundaryConditions
 {
-    public readonly record struct ThirdBoundaryCondition(int FirstGlobalIndex, int SecondGlobalIndex, double Betta, double U);
+    public readonly record struct ThirdBoundaryCondition(int ElemIndex, int FirstLocalIndex, int SecondLocalIndex, double Betta, double U1, double U2);
 }

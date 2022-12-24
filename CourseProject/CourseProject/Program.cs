@@ -32,18 +32,18 @@ namespace CourseProject
             vector.Init();
 
             IReader<SecondBoundaryCondition> reader2 = new SecondBoundaryConditionsReader(grid);
-            SecondBoundaryConditionsApplyer applyer2 = new SecondBoundaryConditionsApplyer(reader2);
+            SecondBoundaryConditionsApplyer applyer2 = new SecondBoundaryConditionsApplyer(grid, reader2);
 
             IReader<ThirdBoundaryCondition> reader3 = new ThirdBoundaryConditionsReader(grid);
-            ThirdBoundaryConditionsApplyer applyer3 = new ThirdBoundaryConditionsApplyer(reader3);
+            ThirdBoundaryConditionsApplyer applyer3 = new ThirdBoundaryConditionsApplyer(grid, reader3);
 
             IReader<FirstBoundaryCondition> reader1 = new FirstBoundaryConditionsReader(grid);
             FirstBoundaryConditionsApplyer applyer1 = new FirstBoundaryConditionsApplyer(reader1);
+            
+            applyer2.Apply(vector);
 
-            applyer2.Apply(grid, vector);
-
-            applyer3.ApplyMatrix(grid, matrix);
-            applyer3.ApplyVector(grid, vector);
+            applyer3.ApplyMatrix(matrix);
+            applyer3.ApplyVector(vector);
 
             applyer1.Apply(grid, matrix, vector);
 
