@@ -36,8 +36,8 @@ namespace FileGenerators.Generators
                         writer.WriteLine(
                             Convert.ToString(_rectangleLocation.LowerLeft.R + i * _elementWidth) +
                             " " +
-                            Convert.ToString(_rectangleLocation.LowerLeft.Phi + j * _elementHeight) +
-                            " 1"
+                            Convert.ToString(_rectangleLocation.LowerLeft.Phi + j * _elementHeight) + " " +
+                            Convert.ToString(Config.lambda(_rectangleLocation.LowerLeft.R + i * _elementWidth, _rectangleLocation.LowerLeft.Phi + j * _elementHeight))
                             );
                     }
                 }

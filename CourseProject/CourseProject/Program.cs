@@ -42,8 +42,8 @@ namespace CourseProject
             
             applyer2.Apply(vector);
 
-            applyer3.ApplyMatrix(matrix);
-            applyer3.ApplyVector(vector);
+            //applyer3.ApplyMatrix(matrix);
+            //applyer3.ApplyVector(vector);
 
             applyer1.Apply(grid, matrix, vector);
 
@@ -51,7 +51,9 @@ namespace CourseProject
             var solution = msg.Solve();
 
             Solver solver = new Solver(grid, matrix, vector, solution);
-            solver.Solve(new (1, 1));
+            Console.WriteLine(solver.Solve(new(2, 2)));
+            Console.WriteLine(solver.Solve(new(3, 3)));
+            Console.WriteLine(solver.Solve(new(4, 4)));
 
         }
     }
