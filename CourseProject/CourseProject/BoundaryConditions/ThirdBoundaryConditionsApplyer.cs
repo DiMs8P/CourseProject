@@ -36,7 +36,7 @@ namespace CourseProject.BoundaryConditions
                 bool bounderIsHorizontal =
                     (boundaryCondition.SecondLocalIndex - boundaryCondition.FirstLocalIndex) == 1;
 
-                double[] condition = bounderIsHorizontal ? CalcR(_grid.ElemWidth, boundaryCondition) : CalcR(_grid.ElemHeight, boundaryCondition);
+                double[] condition = bounderIsHorizontal ? CalcR(_grid.ElemWidth, boundaryCondition) : CalcPhi(_grid.ElemHeight, boundaryCondition);
 
                 globalVector.Add(_grid.Elements[boundaryCondition.ElemIndex].NodeIndexes[boundaryCondition.FirstLocalIndex], condition[0]);
                 globalVector.Add(_grid.Elements[boundaryCondition.ElemIndex].NodeIndexes[boundaryCondition.SecondLocalIndex], condition[1]);
@@ -92,7 +92,7 @@ namespace CourseProject.BoundaryConditions
                                               ((_grid.Elements[boundaryCondition.ElemIndex].Functions[boundaryCondition.FirstLocalIndex].ValueIn(_grid.Nodes[globalIndex1].Radius, phiJ) * boundaryCondition.U1) + (
                                                _grid.Elements[boundaryCondition.ElemIndex].Functions[boundaryCondition.SecondLocalIndex].ValueIn(_grid.Nodes[globalIndex1].Radius, phiJ) * boundaryCondition.U2)) *
                                               _grid.Elements[boundaryCondition.ElemIndex].Functions[index[p]].ValueIn(_grid.Nodes[globalIndex1].Radius, phiJ) *
-                                               _grid.Nodes[globalIndex1].Radius;
+                                              _grid.Nodes[globalIndex1].Radius * _grid.Nodes[globalIndex1].Radius;
                     }
 
                     secondCondition[p] = boundaryCondition.Betta * sumOfInnerIntegral * _weights[j] / 2.0;
@@ -133,7 +133,7 @@ namespace CourseProject.BoundaryConditions
                                               ((_grid.Elements[boundaryCondition.ElemIndex].Functions[boundaryCondition.FirstLocalIndex].ValueIn(rJ, _grid.Nodes[globalIndex1].Angle) * boundaryCondition.U1) + (
                                                _grid.Elements[boundaryCondition.ElemIndex].Functions[boundaryCondition.SecondLocalIndex].ValueIn(rJ, _grid.Nodes[globalIndex1].Angle) * boundaryCondition.U2)) *
                                               _grid.Elements[boundaryCondition.ElemIndex].Functions[index[p]].ValueIn(rJ, _grid.Nodes[globalIndex1].Angle) *
-                                              rJ;
+                                              rJ * rJ;
                     }
 
                     secondCondition[p] = boundaryCondition.Betta * sumOfInnerIntegral * _weights[j] / 2.0;
@@ -178,7 +178,7 @@ namespace CourseProject.BoundaryConditions
                                                       _grid.Elements[boundaryCondition.ElemIndex].Functions[index[q]]
                                                           .ValueIn(rJ,
                                                               _grid.Nodes[globalIndex1].Angle) *
-                                                  rJ;
+                                                  rJ * rJ;
                         }
 
                         conditionMatrix[p, q] = boundaryCondition.Betta * sumOfInnerIntegral * _weights[j] / 2.0;
@@ -220,7 +220,7 @@ namespace CourseProject.BoundaryConditions
                             sumOfInnerIntegral += heightStep *
                                                   _grid.Elements[boundaryCondition.ElemIndex].Functions[index[p]].ValueIn(_grid.Nodes[globalIndex1].Radius, phiJ) *
                                                       _grid.Elements[boundaryCondition.ElemIndex].Functions[index[q]].ValueIn(_grid.Nodes[globalIndex1].Radius, phiJ) *
-                                                  _grid.Nodes[globalIndex1].Radius;
+                                                  _grid.Nodes[globalIndex1].Radius * _grid.Nodes[globalIndex1].Radius;
                         }
 
                         conditionMatrix[p, q] = boundaryCondition.Betta * sumOfInnerIntegral * _weights[j] / 2.0;

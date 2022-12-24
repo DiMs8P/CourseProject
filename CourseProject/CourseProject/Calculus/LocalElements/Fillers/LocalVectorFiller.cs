@@ -37,7 +37,8 @@ namespace CourseProject.Calculus.LocalElements.Fillers
 
         double[] MultiplyMatrixByVector(SymmetricMatrix matrix, List<double> func)
         {
-            if (matrix.Data.GetLength(0) != matrix.Data.GetLength(1) && matrix.Data.GetLength(0) != func.Count)
+            if (matrix.Data.GetLength(0) != matrix.Data.GetLength(1) &&
+                matrix.Data.GetLength(0) != func.Count)
                 throw new ArgumentException();
 
             double[] localVector = new double[func.Count];
@@ -51,7 +52,7 @@ namespace CourseProject.Calculus.LocalElements.Fillers
 
                 localVector[i] = result;
             }
-            return localVector; 
+            return localVector;
         }
 
     }

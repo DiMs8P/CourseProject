@@ -39,21 +39,23 @@ namespace CourseProject
 
             IReader<FirstBoundaryCondition> reader1 = new FirstBoundaryConditionsReader(grid);
             FirstBoundaryConditionsApplyer applyer1 = new FirstBoundaryConditionsApplyer(reader1);
-            
+
             applyer2.Apply(vector);
 
-            //applyer3.ApplyMatrix(matrix);
-            //applyer3.ApplyVector(vector);
+            applyer3.ApplyMatrix(matrix);
+            applyer3.ApplyVector(vector);
 
-            applyer1.Apply(grid, matrix, vector);
+            //applyer1.Apply(grid, matrix, vector);
 
             MSG msg = new MSG(matrix, vector);
             var solution = msg.Solve();
 
             Solver solver = new Solver(grid, matrix, vector, solution);
+            Console.WriteLine(solver.Solve(new(1, 1)));
+            Console.WriteLine(solver.Solve(new(1, 3)));
             Console.WriteLine(solver.Solve(new(2, 2)));
+            Console.WriteLine(solver.Solve(new(3, 1)));
             Console.WriteLine(solver.Solve(new(3, 3)));
-            Console.WriteLine(solver.Solve(new(4, 4)));
 
         }
     }

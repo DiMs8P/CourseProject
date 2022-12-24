@@ -101,7 +101,7 @@ namespace CourseProject.Calculus.LocalElements.Fillers
                                         ((_grid.Elements[elemIndex].Functions[p].ValueRadiusDerivativeIn(rI, phiJ) *
                                          _grid.Elements[elemIndex].Functions[q].ValueRadiusDerivativeIn(rI, phiJ)) + (
                                          _grid.Elements[elemIndex].Functions[p].ValueAngleDerivativeIn(rI, phiJ) *
-                                          _grid.Elements[elemIndex].Functions[q].ValueAngleDerivativeIn(rI, phiJ) / 
+                                          _grid.Elements[elemIndex].Functions[q].ValueAngleDerivativeIn(rI, phiJ) /
                                          (rI * rI))) *
                                         lambdaForElem(rI, phiJ);
                                 }
@@ -140,8 +140,8 @@ namespace CourseProject.Calculus.LocalElements.Fillers
 
                         for (int r = 0; r < _numberOfSplits; r++)
                         {
-                            var rI = (_grid.Nodes[_grid.Elements[elemIndex].NodeIndexes[0]].Radius + r * _widthStep +
-                                      _grid.Nodes[_grid.Elements[elemIndex].NodeIndexes[0]].Radius +
+                            var rI = (_grid.Nodes[_grid.Elements[elemIndex].NodeIndexes[1]].Radius + r * _widthStep +
+                                      _grid.Nodes[_grid.Elements[elemIndex].NodeIndexes[1]].Radius +
                                       (r + 1) * _widthStep) / 2.0 + _rootsLegendrePolynomial[i] * _widthStep / 2;
 
                             var innerIntergalValue = 0.0d;
@@ -162,7 +162,7 @@ namespace CourseProject.Calculus.LocalElements.Fillers
                                         ((_grid.Elements[elemIndex].Functions[p].ValueRadiusDerivativeIn(rI, phiJ) *
                                          _grid.Elements[elemIndex].Functions[q].ValueRadiusDerivativeIn(rI, phiJ)) +
                                          _grid.Elements[elemIndex].Functions[p].ValueAngleDerivativeIn(rI, phiJ) *
-                                          _grid.Elements[elemIndex].Functions[q].ValueAngleDerivativeIn(rI, phiJ) / 
+                                          _grid.Elements[elemIndex].Functions[q].ValueAngleDerivativeIn(rI, phiJ) /
                                          (rI * rI)) *
                                     lambdaForElem(rI, phiJ);
                                 }
@@ -253,8 +253,8 @@ namespace CourseProject.Calculus.LocalElements.Fillers
 
                         for (int r = 0; r < _numberOfSplits; r++)
                         {
-                            var rI = (_grid.Nodes[_grid.Elements[elemIndex].NodeIndexes[0]].Radius + r * _widthStep +
-                                      _grid.Nodes[_grid.Elements[elemIndex].NodeIndexes[0]].Radius +
+                            var rI = (_grid.Nodes[_grid.Elements[elemIndex].NodeIndexes[1]].Radius + r * _widthStep +
+                                      _grid.Nodes[_grid.Elements[elemIndex].NodeIndexes[1]].Radius +
                                       (r + 1) * _widthStep) / 2.0 + _rootsLegendrePolynomial[i] * _widthStep / 2.0;
 
                             var innerIntergalValue = 0.0d;

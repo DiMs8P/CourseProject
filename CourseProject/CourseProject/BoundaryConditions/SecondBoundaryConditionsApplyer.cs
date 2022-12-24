@@ -49,7 +49,7 @@ namespace CourseProject.BoundaryConditions
             var globalIndex2 = _grid.Elements[boundaryCondition.ElemIndex]
                 .NodeIndexes[boundaryCondition.SecondLocalIndex];
 
-            int[] index = new int[2] { boundaryCondition .FirstLocalIndex, boundaryCondition.SecondLocalIndex};
+            int[] index = new int[2] { boundaryCondition.FirstLocalIndex, boundaryCondition.SecondLocalIndex };
 
             for (int p = 0; p < 2; p++)
             {
